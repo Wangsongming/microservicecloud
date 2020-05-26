@@ -1,0 +1,14 @@
+server:
+  port: 3344
+
+spring:
+  application:
+    name: microservicecloud-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Wangsongming/microservicecloud-config.git
+
+#因为已经做了ip映射，所以这里是config-3344.com:3344
+#config-3344.com:3344/application-dev.yml    获取github上application.yml中profiles是dev的部分配置信息

@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: mircoservicecloud-config-client
+
+
+#这里做了ip映射client-config.com
+#端口号是目标配置文件里面的端口号

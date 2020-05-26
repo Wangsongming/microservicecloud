@@ -1,0 +1,47 @@
+server:
+  port: 8002
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml #引入mybatis-config配置文件
+  mapper-locations: classpath:mybatis/mapper/*.xml  #引入mapper.xml
+  type-aliases-package: com.itwang.entities
+  filters: stat
+  initialSize: 2
+  maxActive: 300
+  maxWait: 60000
+  timeBetweenEvictionRunsMillis: 60000
+  minEvictableIdleTimeMillis: 300000
+  maxPoolPreparedStatementPerConnectionSize: 200
+  validationQuery: SELECT 1
+  testWhileIdle: true
+  testOnBorrow: false
+  testOnReturn: false
+  poolPreparedStatements: false
+
+
+
+spring:
+  application:
+    name: microservicecloud-dept  #eureka服务中心里面注册的程序服务名
+  datasource:
+    username: root
+    password: 511204301
+    url: jdbc:mysql://localhost:3306/cloud-dept2?characterEncoding=utf-8&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+eureka:
+  client:
+    service-url:
+#      defaultZone: http://localhost:7001/eureka
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: microservicecloud-dept8002  #eureka服务中心里面注册的服务实例名
+    prefer-ip-address: true  #访问路径显示IP地址
+
+#修改注册中心info里面的信息
+info:
+  app.name: itwang-micorservicecloud
+  company.name: com.itwang
+  build.artifactId: $project.artifactId$   #自动获取当前项目的项目名
+  build.version: $project.version$    #自动获取当前项目的版本号

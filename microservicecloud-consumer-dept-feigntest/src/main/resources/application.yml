@@ -1,0 +1,14 @@
+server:
+  port: 80
+
+eureka:
+  client:
+    service-url:
+      #      把eureka客户端注册进这3个eureka服务端/注册中心
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+    register-with-eureka: false   #不把自己注册进微服务里
+
+#开启断路器
+feign:
+  hystrix:
+    enabled: true
